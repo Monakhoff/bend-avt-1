@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <title>SW Planets List</title>
+    <style>
+        body {background: url(images/space.jpg) center no-repeat;
+              background-size: cover}
+    </style>
+    <script defer src = "HW_5.js"></script>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta charset = "UTF-8">
+    <link href = "HW_5.css" rel = "stylesheet">
+</head>
+
+<body>
+
+<button class = "cursor audio" id = "audio"></button>
+<section id = "titres">
+    <div id = "scroll">
+        <br>Sending the request about the planets to a galaxy far, far away.<br>
+        <br>Let it rush faster than light through time and space and return as soon as possible.<br>
+        <br>Now it remains to wait for the answer!<br>
+    </div>
+</section>
+<section class = "container v-container" id = "inform">
+    <header>
+        <h1>Planets from Star Wars</h1>
+        <div class = "container">
+            <span class = "cursor prev"></span>
+            <span class = "cursor prev" id = "prev">&nbsp;&lt;=&nbsp;</span>
+            <span class = "page" id = "page"></span>
+            <span class = "cursor next" id = "next">&nbsp;=&gt;&nbsp;</span>
+            <span class = "cursor next"></span>
+        </div>
+    </header>
+    <main>
+        <div class = "container" id = "list"></div>
+    </main>
+    <footer>
+        <button class = "cursor" id = "show">Show all</button>
+    </footer>
+</section>
+<section class = "container v-container" id = "modal_window">
+    <div class = "container h-container">
+        <span class = "title"></span>
+        <span class = "cross cursor">x</span>
+    </div>
+    <div class = "container v-container"></div>
+    <div class = "container v-container">
+        <table id = "films"></table>
+        <table id = "residents"></table>
+    </div>
+</section>
+
+</body>
+
+</html>

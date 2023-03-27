@@ -1,0 +1,153 @@
+*
+{
+    box-sizing: border-box;
+    border: 0; margin: 0; padding: 0
+}
+*.card, *.container
+{
+    align-items: center; justify-content: center;
+    display: flex; text-align: center;
+}
+*.cursor
+{
+    cursor: pointer;
+}
+*.disabled
+{
+    pointer-events: none;
+    opacity: 0.25;
+}
+*.h-container
+{
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+*.v-container
+{
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 10vmin;
+}
+body, html
+{
+	background-color: black; color: yellow;
+	font-family: "Droid Sans", arial, verdana, sans-serif; font-weight: bold;
+	min-height: 100vh; width: 100vw;
+    overflow-x: hidden;
+    user-select: none;
+}
+button
+{
+    background-color: transparent;
+    border: 1px solid gold; border-radius: 0.5rem;
+    color: white;
+    margin: 5px; padding: 5px;
+}
+button.audio
+{
+    background: url(images/audio.png) center no-repeat; background-size: cover;
+    border: none;
+    position: absolute;
+    height: 2rem; width: 2rem;
+    left: 1rem; top: 1rem;
+}
+button#show
+{
+   font-size:  2.0vmax;
+}
+div.card
+{
+    border: 1px solid gold;
+    font-size: 20px;
+    margin: 5px;
+    width: 300px;
+}
+div#list
+{
+    flex-wrap: wrap;
+}
+div#scroll
+{
+	animation: scroll 30s linear 0s;
+	position: absolute;
+	top: 100%;
+}
+@keyframes scroll
+{
+	0% {top: 100%}
+	100% {top: -80%}
+}
+h1, span.cross
+{
+    font-size: 3.0vmax;
+}
+main
+{
+    margin: 5px 0;
+}
+section
+{
+    margin: 0 auto;
+    overflow-y: scroll;
+    width: 100%
+}
+section#inform
+{
+    display: none;
+}
+section#titres
+{
+	bottom: 0; left: 10%; margin-left: -10%;
+	height: 200vh; width: 100vw;
+	position: absolute;
+	font-size: 7.5vw;
+    overflow: hidden;
+	text-align: justify;
+	transform-origin: 50% 99%;
+	transform: perspective(100vh) rotateX(25deg);
+}
+section#modal_window
+{
+    background-color: black; color: white;
+    border-radius: 1rem;
+    display: none;
+    font-size: 2vmax;
+    max-height: 95%; max-width: 95%;
+    padding: 10px;
+    position: fixed;
+    opacity: 0.95;
+    overflow-y: scroll;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s all;
+    z-index: 50;
+}
+span.next, span.page, span.prev
+{
+    font-size: 2.5vmax;
+}
+table
+{
+    border-collapse: collapse;
+    margin: 5px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+td
+{
+    border: 1px solid white;
+    padding: 1px;
+}
+::-webkit-scrollbar {display: none}
+@media screen and (min-device-width: 1280px)
+{
+    div.card
+    {
+        border: 2px solid gold;
+        font-size: 30px;
+        margin: 10px;
+        width: 450px;
+    }
+}
