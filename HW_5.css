@@ -70,12 +70,12 @@ div#scroll
 {
 	animation: scroll 30s linear 0s;
 	position: absolute;
-	top: 105%;
+	top: 120%;
 }
 @keyframes scroll
 {
-	0% {top: 105%}
-	100% {top: -95%}
+	0% {top: 120%}
+	100% {top: -100%}
 }
 h1, span.cross
 {

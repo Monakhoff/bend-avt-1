@@ -264,7 +264,6 @@ elements.forEach(element =>
         element.addEventListener('click', () => 
         {
             const audio_player = new Audio();
-            document.documentElement.requestFullscreen();
             element.style.display = 'none';
         });
         element.click();
