@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang = "ru">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, user-scalable = yes">
+    <script defer src = "HW_1.js"></script>
+    <style>
+        pre {white-space: pre-wrap}
+    </style>
+    <title>Homework №1</title>
+</head>
+
+<body>
+
+<h2>Домашняя работа №1</h2>
+
+<h4>Задание №0</h4>
+<pre>Реализовать функцию, которая принимает на вход строку, а возвращает длину этой строки:<br>
+'Я - строка !' -> 12
+<br>P.S. С практики (для закрепления навыков по работе со стрелочными функциями).</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_string = 'Я - строка !',
+      custom_function = (string) => string.length,
+      result = custom_function (custom_string);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '0'></samp></div>
+
+<h4>Задание №1</h4>
+<pre>Реализовать функцию, которая принимает на вход массив строк, а возвращает только те из них, что короче 20 символов:<br>
+[
+    'Я короткая строка',
+    'Я вроде бы тоже короткая строка',
+    'А я длинная строка'
+] -> [
+    'Я короткая строка',
+    'А я длинная строка'
+]
+<br>P.S. Метод .filter().</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = ['Я короткая строка','Я вроде бы тоже короткая строка','А я длинная строка'],
+      custom_number = 20,
+      custom_function = (array, limit) =>
+       array.filter(string => string.length &lt;= limit),
+      result = custom_function (custom_array, custom_number);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '1a'></samp></div>
+<pre><u>Альтернатива</u>:<br><code>
+const custom_function = (array, limit) =>
+      {
+        result = [];
+        for (item = 0; item &lt; array.length; item++)
+        {
+            if (array[item].length &lt;= limit) result.push(array[item]);
+        }
+        return result;
+      },
+      result = custom_function (custom_array, custom_number);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '1b'></samp></div>
+
+<h4>Задание №2</h4>
+<pre>Реализовать функцию, которая принимает на вход следующие данные:<br>
+[
+    { name: 'shark', likes: 'ocean' },
+    { name: 'turtle', likes: 'pond' },
+    { name: 'otter', likes: 'fish biscuits' }
+]
+<br>И возвращает массив строк:<br>
+[ 'shark likes ocean', 'turtle likes pond', 'otter likes fish biscuits' ]
+<br>P.S. Метод .map().</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = [{ name: 'shark', likes: 'ocean' },
+                      { name: 'turtle', likes: 'pond' },
+                      { name: 'otter', likes: 'fish biscuits' }],
+      custom_function = (array) =>
+       array.map(object => object.name + ' ' + Object.keys(object)[1] + ' ' + object.likes),
+      result = custom_function (custom_array);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '2a'></samp></div>
+<pre><u>Альтернатива</u>:<br><code>
+const custom_string = 'likes',
+      custom_function = (array) =>
+      {
+        result = [];
+        for (item = 0; item &lt; array.length; item++)
+        {
+            object = array[item];
+            result.push(object.name + ' ' + custom_string + ' ' + object.likes);
+        }
+        return result;
+      },
+      result = custom_function (custom_array, custom_string);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '2b'></samp></div>
+
+<h4>Задание №3</h4>
+<pre>Реализовать функцию, которая принимает на вход два объекта, а возвращает один с общими свойствами:<br>
+{ name: 'Алиса' }, { age: 11 } -> { name: 'Алиса', age: 11 }
+<br>P.S. Оператор spread |...|.</pre>
+<pre><u>Ответ</u>:<br><code>
+const object_one = { name: 'Алиса' },
+      object_two = { age: 11 },
+      custom_function = (object_one, object_two) =>
+       object = {...object_one, ...object_two},
+      result = custom_function (object_one, object_two);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '3a'></samp></div>
+<pre><u>Альтернатива</u>:<br><code>
+const object_one = { name: 'Александра' },
+      object_two = { age: 8 },
+      custom_function = (object_one, object_two) =>
+       Object.assign({}, object_one, object_two),
+      result = custom_function (object_one, object_two);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '3b'></samp></div>
+
+<h4>Задание №4</h4>
+<pre>Реализовать функцию, которая возвращает наименьшее значение из массива:<br>
+[1,2,3,4] -> 1
+<br>P.S. Метод Math.min() и оператор spread |...|.</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = [1,2,3,4],
+      custom_function = (array) =>
+       Math.min(...array),
+      result = custom_function (custom_array);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '4'></samp></div>
+
+<h4>Задание №5</h4>
+<pre>Реализовать функцию, которая возвращает нечетные значения из массива:<br>
+[1,2,3,4] -> [1,3]
+<br>P.S. Метод .reduce().</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = [1,2,3,4],
+      custom_function = (array) =>
+       array.reduce((list, value) => {value % 2 != 0 && list.push(value); return list}, []),
+      result = custom_function (custom_array);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '5'></samp></div>
+
+<h4>Задание №6</h4>
+<pre>Реализовать функцию, которая принимает на вход данные из корзины в следующем виде:<br>
+[
+    { price: 10, count: 2 },
+    { price: 100, count: 1 },
+    { price: 2, count: 5 },
+    { price: 15, count: 6 }
+]
+<br>Здесь price это цена товара, а count количество. Функция должна вернуть итоговую сумму по данному заказу.
+<br>P.S. Метод .reduce().</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = [{ price: 10, count: 2 },
+                      { price: 100, count: 1 },
+                      { price: 2, count: 5 },
+                      { price: 15, count: 6 }],
+      custom_function = (array) =>
+       array.reduce((sum, item) => sum + item.count * item.price, 0),
+      result = custom_function (custom_array);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '6'></samp></div>
+
+<h4>Задание №7</h4>
+<pre>Реализовать функцию, на входе которой массив чисел, на выходе массив уникальных значений:<br>
+[1, 2, 2, 4, 5, 5] -> [1, 2, 4, 5]
+<br>P.S. Методы .reduce() и .indexOf().</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = [1, 2, 2, 4, 5, 5],
+      custom_function = (array) =>
+       array.reduce((set, value) => {set.indexOf(value) == -1 && set.push(value); return set}, []),
+      result = custom_function (custom_array);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '7'></samp></div>
+
+<h4>Задание №8</h4>
+<pre>Реализовать функцию, на входе которой код ошибки, на выходе строка с сообщением:<br>
+401 => Ошибка авторизации
+402 => Требуется оплата
+403 => Доступ запрещен
+404 => Не найдено
+500 => Ошибка сервера
+<br>P.S. Операторы switch и case.</pre>
+<pre><u>Ответ</u>:<br><code>
+const object = {'401': 'Ошибка авторизации',
+                '402': 'Требуется оплата',
+                '403': 'Доступ запрещен',
+                '404': 'Не найдено',
+                '500': 'Ошибка сервера'},
+      custom_function = (error) =>
+      {
+        if (isFinite(error))
+        {
+            if (object[error] != undefined) console.warn(`Обнаружена проблема: ошибка ${error}!`)
+            else {error = 'unknown'; console.warn(`Код ошибки - не известен!`)};
+        }
+        else if (isNaN(error))
+        {
+            error = Object.keys(object)[Math.floor(Math.random() * Object.keys(object).length)];
+            console.warn(`Режим симуляции активирован: сгенерирована ошибка ${error}.`);
+        }
+        switch (error)
+        {
+            case 'unknown':
+                error = `Неизвестная ошибка`;
+                break;
+            default:
+                error = `${error} => ${object[error]}`;
+        };
+        return error;
+      },
+      result = custom_function('abracadabra');
+</code></pre>
+<div>Результат:&nbsp;<samp id = '8'></samp></div>
+
+<h4>Задание №9</h4>
+<pre>Реализовать функцию, которая возвращает 2 наименьших значения массива:<br>
+[4,3,2,1] -> [1,2]
+<br>P.S. Методы .sort() и .slice().</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = [4,3,2,1],
+      custom_function = (array) =>
+       array.sort((a, b) => a - b).slice(0, 2),
+      result = custom_function (custom_array);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '9'></samp></div>
+
+<h4>Задание №10</h4>
+<pre>Реализовать функцию, на входе которой объект следующего вида:<br>
+{
+    firstName: 'Петр',
+    secondName: 'Васильев',
+    patronymic: 'Иванович'
+}
+<br>А на выходе строка с сообщением 'ФИО -> Петр Иванович Васильев'.
+<br>P.S. Методы .concat() и .join().</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = {firstName: 'Петр',
+                      secondName: 'Васильев',
+                      patronymic: 'Иванович'},
+      custom_function = (array) =>
+       `ФИО => ${[].concat(array.firstName, array.patronymic, array.secondName).join(' ')}`,
+      result = custom_function (custom_array);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '10'></samp></div>
+
+<h4>Задание №11</h4>
+<pre>Реализовать функцию, которая принимает на вход 2 аргумента: массив чисел и множитель, а возвращает исходный массив, каждый элемент в котором был умножен на множитель:<br>
+[1,2,3,4], 5 -> [5,10,15,20]
+<br>P.S. Метод map().</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = [1,2,3,4],
+      custom_number = 5,
+      custom_function = (array, multiplier) =>
+       array.map(number => number * multiplier),
+      result = custom_function (custom_array, custom_number);
+</code></pre>
+<div>Результат:&nbsp;<samp id = '11'></samp></div>
+
+<h4>Задание №12</h4>
+<pre>Реализовать функцию, которая принимает на вход 2 аргумента, массив и франшизу:<br>
+[
+    {name: “Batman”, franchise: “DC”},
+    {name: “Ironman”, franchise: “Marvel”},
+    {name: “Thor”, franchise: “Marvel”},
+    {name: “Superman”, franchise: “DC”}
+]
+<br>И возвращает строку с именами героев, разделенных запятой:<br>
+Marvel -> Ironman, Thor
+<br>P.S. Методы .filter(), .map() и .join().</pre>
+<pre><u>Ответ</u>:<br><code>
+const custom_array = [{name: 'Batman', franchise: 'DC'},
+                      {name: 'Ironman', franchise: 'Marvel'},
+                      {name: 'Thor', franchise: 'Marvel'},
+                      {name: 'Superman', franchise: 'DC'}],
+      custom_function = (array, franchise) =>
+       franchise + ' => ' +
+       array.filter(string => string.franchise == franchise).map(string => string.name).join(', '),
+      result = custom_function (custom_array, 'Marvel');
+</code></pre>
+<div>Результат:&nbsp;<samp id = '12'></samp></div>
+
+</body>
+
+</html>
