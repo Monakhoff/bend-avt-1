@@ -1,0 +1,164 @@
+@font-face
+{
+    font-family: 'DotGothic16'; font-style: normal; font-weight: normal;
+    src: url('./fonts/DotGothic16-Regular.ttf') format('truetype');
+}
+body, button
+{
+    font-family: 'DotGothic16', sans-serif;
+}
+button
+{
+    background-color: green;
+    border-radius: 0.5rem;
+    color: lightgreen;
+    cursor: pointer;
+    padding: 0.5rem;
+    min-width: 100px;
+}
+button:disabled
+{
+    background-color: red;
+    color: darkred;
+    cursor: not-allowed;
+}
+div#arena, div#log
+{
+    border: 1px solid rgb(243, 184, 64);
+    box-sizing: border-box;
+    display: flex;
+    margin: 1rem auto;
+    max-width: 100%; width: 1000px;
+}
+div#arena
+{
+    flex-direction: row;
+}
+div.bot
+{
+    float: left;
+    height: 210px; width: 100px;
+    margin: 1rem; margin-bottom: 2rem;
+    position: relative;
+    transition: 0.25s;
+}
+div.bot span
+{
+    bottom: -1.5rem;
+    color: rgb(243, 184, 64);
+    font-size: 1rem;
+    position: absolute;
+    text-align: center;
+    transition: 0.25s;
+    width: 100%;
+}
+div.bot span.name
+{
+    bottom: -0.5rem;
+}
+div.bubble
+{
+    align-items: center; justify-content: center;
+    background-color: white;
+    border-radius: 1rem;
+    color: purple;
+    display: flex;
+    float: left;
+    font-size: 0.75rem;
+    margin: 2.5%;
+    padding: 2.5%;
+    text-align: center;
+    position: relative;
+}
+div.bubble:after
+{
+    border: 10px solid transparent;
+    content: ''; 
+    position: absolute;
+    z-index: -1;
+}
+div.hit
+{
+    filter: invert();
+}
+div#log
+{
+    color: white;
+    flex-direction: column;
+    font-size: 0.75rem;
+    max-height: 12rem; min-height: 2rem;
+    overflow-y: scroll;
+    padding: 0.25rem;
+    text-align: justify;
+}
+div#menu
+{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+div.side
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 50%;
+}
+div#side-one
+{
+    border-right: 1px solid rgb(243, 184, 64);
+}
+div#side-two
+{
+    align-content: flex-start;
+}
+div#side-one .bot
+{
+    background: url('./images/side1.png') center center no-repeat;
+    background-size: contain;
+}
+div#side-two .bot
+{
+    background: url('./images/side2.png') center center no-repeat;
+    background-size: contain;
+}
+h1#caption
+{
+    color: rgb(243, 184, 64);
+    font-size: 2rem;
+    text-align: center;
+}
+html
+{
+    background: #010123;
+    font-size: 20px;
+}
+u
+{
+    text-decoration-style: double;
+    text-underline-offset: 2px;
+}
+@media screen and (max-device-width: 799px)
+{
+    div.bubble
+    {
+        height: 4.5rem; width: 90%;
+    }
+    div.bubble:after
+    {
+        border-top: 1.5rem solid white;
+        bottom: -1.5rem; left: 0.75rem;
+    }
+}
+@media screen and (min-device-width: 800px)
+{
+    div.bubble
+    {
+        height: 3.5rem; width: 50%;
+    }
+    div.bubble:after
+    {
+        border-left: 1.5rem solid white;
+        right: -1.5rem; top: 0.75rem;
+    }
+}
