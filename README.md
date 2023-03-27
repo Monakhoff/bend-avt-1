@@ -36,6 +36,7 @@ Home Works
 -> HW_3.js
 
 +> fonts/DotGothic16-Regular.ttf;
+ 
 +> images/side1.png;
  images/side2.png
 
@@ -60,5 +61,6 @@ Home Works
 
 +> audio/Star Wars - Imperial March Remix.mp3;
  audio/Star Wars - Main Theme Remix.mp3;
+ 
 +> images/audio.png;
  images/space.png
