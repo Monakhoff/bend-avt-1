@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang = "ru">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, user-scalable = yes">
+    <script defer src = "HW_4.js"></script>
+    <style>
+        div#entry_field {align-items: center; display: flex}
+        div#entry_field > * {margin-left: 5px}
+        pre {white-space: pre-wrap}
+    </style>
+    <title>Homework №4</title>
+</head>
+
+<body>
+
+<h2>Домашняя работа №4</h2>
+
+<h4>Задание №1</h4>
+<pre>Написать promise, который возвращает значение 1.<br>
+Прочитать результат выполнения promise в консоль.</pre>
+<pre><u>Ответ:</u><br><code>
+const promise = new Promise((resolve, reject) => resolve(1));
+      promise.then(console.log);
+</code></pre>
+<div>Результат:<samp id = '1'></samp></div>
+
+<h4>Задание №2</h4>
+<pre>Написать promise, который возвращает значение 1 с задержкой две секунды.<br>
+Прочитать результат выполнения promise в консоль.</pre>
+<pre><u>Ответ:</u><br><code>
+const promise = new Promise((resolve, reject) => setTimeout(() => resolve(1), 2000));
+      promise.then(console.log);
+</code></pre>
+<div>Результат:<samp id = '2'></samp></div>
+
+<h4>Задание №3</h4>
+<pre>1. Реализовать такую функцию getList, которая возвращает promise с данными о списке задач, имитируя задержку перед получением в две секунды.<br>
+2. Написать скрипт, который получит данные из функции getList и выведет на экран список задач.<br>
+3. Дополнить скрипт таким образом, чтобы если возвращалась ошибка, выводилось сообщение об ошибке.</pre>
+<pre><u>Ответ:</u><br><code>
+const list = [{id: 1, title: 'Задача №1', status: true},
+              {id: 2, title: 'Задача №2', status: false}];
+getList(list);
+
+function getList (list)
+{
+    return setTimeout(function()
+    {
+        promise = new Promise((resolve, reject) => list ? resolve(list) : reject('Ошибка!'));
+        promise.then(list =>
+                     list.forEach(item => console.log(`${item.title}: ${item.status};`)))
+               .catch(console.error);
+    }, 2000);
+}
+</code></pre>
+<div>Результат:<samp id = '3'></samp></div>
+
+<h4>Задание №4</h4>
+<pre>1. Реализовать функцию, которая  будет собирать строку "Я использую цепочки promises", присоединяя каждое слово через отдельный then-блок с задержкой в одну секунду на каждом шаге.<br>
+2. Результат выполнения функции выводить в консоль.</pre>
+<pre><u>Ответ:</u><br><code>
+const array = ['Я', 'использую', 'цепочки', 'promises'];
+getProposition1(array).then(console.log);
+
+function getProposition1 (array)
+{
+    let string = "";
+    return new Promise(resolve => resolve(string))
+               .then(string => new Promise (resolve => setTimeout (() =>
+               return resolve(string += array[0] + " "), 1000)))
+               .then(string => new Promise (resolve => setTimeout (() =>
+               return resolve(string += array[1] + " "), 1000)))
+               .then(string => new Promise (resolve => setTimeout (() =>
+               return resolve(string += array[2] + " "), 1000)))
+               .then(string => new Promise (resolve => setTimeout (() =>
+               return resolve(string += array[3] + "!"), 1000)));
+}
+</code></pre>
+<div>Результат:<samp id = '4'></samp></div>
+
+<h4>Задание №5</h4>
+<pre>1. Реализовать функцию, которая  будет собирать строку "Я использую параллельный вызов для promises", с использованием функции Promises.all(), со следующими задержками по времени для каждого шага: 1000, 800, 1200, 750, 500 (в миллисекундах).<br>
+2. Результат выполнения функции выводить в консоль.</pre>
+<pre><u>Ответ:</u><br><code>
+const array = ['Я', 'использую', 'параллельный', 'вызов', 'promises'],
+      delays = [1000, 800, 1200, 750, 500];
+getProposition2(array, delays).then(console.log);
+
+function getProposition2 (array, delays)
+{
+    let promises = [];
+    array.forEach((item, index) =>
+        promises.push(new Promise(resolve =>
+            setTimeout(() => resolve(item), delays[index]))));
+    return Promise.all(promises).then(string => string.join(' ') + '!');
+}
+</code></pre>
+<div>Результат:<samp id = '5'></samp></div>
+
+<h4>Задание №6</h4>
+<pre>Реализовать функцию delay (ms), которая возвращает promise, переходящий в состояние "resolved", через ms миллисекунд.</pre>
+<pre><u>Ответ:</u><br><code>
+const message = 'Это сообщение вывелось через несколько секунд.';
+delay(2000).then(console.log(message));
+
+function delay (delay)
+{
+    return new Promise(resolve => setTimeout(() => resolve(), delay));
+}
+</code></pre>
+<div>Результат:<samp id = '6'></samp></div>
+
+<h4>Задание №7</h4>
+<pre>Переделайте задание № 5, используя функцию delay (ms).</pre>
+<pre><u>Ответ:</u><br><code>
+const array = ['Я', 'использую', 'параллельный', 'вызов', 'promises'],
+      delays = [1000, 800, 1200, 750, 500];
+getProposition3(array, delays).then(console.log);
+
+function delay (delay, item = "")
+{
+    return new Promise(resolve => setTimeout(() => resolve(item), delay));
+}
+
+function getProposition3 (array, delays)
+{
+    let promises = [];
+    array.forEach((item, index) => promises.push(delay(delays[index], item)));
+    return Promise.all(promises).then(string => string.join(' ') + '!');
+ }
+</code></pre>
+<div>Результат:<samp id = '7'></samp></div>
+
+<h4>Задание №8</h4>
+<pre>Реализовать функцию, которая загрузит данные по первому из фильмов, в которых встречалась планета Tatooine, используя предоставленный API (https://swapi.dev).</pre>
+<pre><u>Ответ:</u><br><code>
+getData1('Tatooine', 'planets').then(console.log);
+
+async function getData1 (key_word, subsection, link = 'https://swapi.dev/api/films/')
+{
+    let message = 'Сервер не отвечает!';
+    promise = await fetch(link).then(response => response.json());
+    const data = promise.results;
+    for (let index = 0; index &lt; data.length; index++)
+    {
+        const array = await Promise.all(data[index][subsection].map(url =>
+                            fetch(url).then(response => response.json())));
+        if (array.find(item => item.name === key_word)) return message = data[index].title;
+    }
+    return message;
+}
+</code></pre>
+<div>Результат:<samp id = '8'></samp></div>
+
+<h4>Задание №9</h4>
+<pre>Реализовать функцию, которая загрузит данные по первому транспортному средству, на котором разъезжал Anakin Skywalker, используя предоставленный API (https://swapi.dev).</pre>
+<pre><u>Ответ:</u><br><code>
+getData2('Anakin Skywalker', 'vehicles').then(console.log);
+
+async function getData2 (key_word, subsection, link = 'https://swapi.dev/api/people/')
+{
+    let message = 'Сервер не отвечает!';
+    promise = await fetch(link).then(response => response.json());
+    const amount = promise.count;
+    for (let index = 1; index &lt; amount; index++)
+    {
+        let url = link + index;
+        const array = await fetch(url).then(response => response.json());
+        if (array.name === key_word)
+        {
+            url = array[subsection][0];
+            const result = await fetch(url).then(response => response.json());
+            return message = result.name;
+        }
+    }
+    return message;
+}
+</code></pre>
+<div>Результат:<samp id = '9'></samp></div>
+
+<h4>Задание №10</h4>
+<pre>1. Реализовать эхо-сервер, который на запрос POST будет возвращать тело запроса.<br>
+2. Реализовать функцию, которая посылает запрос на эхо-сервер со следующим содержанием:<br>
+{ message: "Привет сервис, жду от тебя ответа!" }<br>
+3. Принять ответ от сервера и вывести в консоль, используя async/await.</pre>
+<pre><u>Ответ:</u><br><code>
+Клиент
+async function sendData (data = new Object, link = 'https://bbmods.ru/echo')
+{
+    data.message = document.querySelector('textarea').value;
+    const response = await fetch(link,
+          {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json; charset=utf-8'},
+            body: JSON.stringify(data)
+          }),
+          result = await response.text();
+    console.log(result);
+}
+button.onclick = () => sendData();
+
+Сервер
+const http = require('http'),
+      url = require('url');
+var server = http.createServer(function(request, response)
+{
+    let parsed_url = url.parse(request.url, true);
+    if (parsed_url.pathname == '/echo' && request.method == 'POST')
+    {
+        let message = new Object;
+        request.on('data', data => message = data);
+        request.on('end', () => response.end(message));
+    }
+    else response.end('Hello, World!');
+    response.writeHead(200, "OK", {'Cache-control': 'no-cache'});
+});
+server.listen(process.env.PORT);
+console.log(`Server started!`);
+</code></pre>
+<div id = 'entry_field'>Текст запроса:
+    <textarea id = "request" cols = "35" maxlength = "35" rows = "1" style = "resize: none" value = "">Привет, сервер, жду от тебя ответа!</textarea>
+    <button id = "button">Отправить</button>
+</div>
+<div>Результат:<samp id = '10'></samp></div>
+
+</body>
+
+</html>
