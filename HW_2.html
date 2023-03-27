@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang = "ru">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, user-scalable = no">
+    <script defer src = "HW_2.js"></script>
+    <script id = "DragDropTouch" src = "DragDropTouch.js"></script>
+    <title>Homework №2</title>
+    <style>
+        a {text-decoration: none}
+        button {cursor: pointer}
+        pre {white-space: pre-wrap}
+        li {margin-bottom: 0.5rem}
+    </style>
+</head>
+
+<body>
+
+<h2>Домашняя работа №2</h2>
+
+<h4>Задание №1</h4>
+<style>.active {color: red}</style>
+<ul id = "list_1">
+    <li><a class = "active" href="/1">Item 1</a></li>
+    <li><a href="/2">Item 2</a></li>
+    <li><a href="/3">Item 3</a></li>
+</ul>
+<pre>Написать скрипт активной ссылки: при нажатии на ссылку появляется эффект выделения пункта меню цветом или фоном.
+<br>P.S. Отслеживание события клика, остановка события перехода.</pre>
+<pre><u>Ответ</u>:<br><code>
+const list = document.getElementById('list_1');
+list.addEventListener('click', function toggleAnchor (event)
+{
+    if (event.target.tagName == 'A') event.preventDefault()
+    else return;
+    const active_link = document.querySelector('a.active');
+    if (active_link) active_link.classList.remove('active');
+    event.target.classList.add('active');
+});
+</code></pre>
+<div>Результат:&nbsp;<samp id = '1'>?</samp></div>
+
+<h4>Задание №2</h4>
+<ul id = "list_2">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+<button id = "left_button">Добавить</button>
+<button id = "right_button">Удалить</button>
+<pre>Написать скрипт, по нажатию кнопки "Добавить" добавляющий новый элемент в конец списка, по нажатию кнопки "Удалить" удаляющий из конца списка.
+<br>P.S. Методы .appendChild() и .removeChild().</pre>
+<pre><u>Ответ</u>:<br><code>
+const left_button = document.getElementById('left_button');
+left_button.addEventListener('click', function append_element()
+{
+    const ul = document.getElementById('list_2'),
+          li = document.createElement('li'),
+          counter = ul.getElementsByTagName('li').length;
+    li.textContent = 'Item ' + (counter + 1);
+    ul.appendChild(li);
+});
+
+const right_button = document.getElementById('right_button');
+right_button.addEventListener('click', function remove_element()
+{
+    const ul = document.getElementById('list_2'),
+          li = ul.lastElementChild,
+          counter = ul.getElementsByTagName('li').length;
+    if (counter == 0) return
+    else ul.removeChild(li);
+});
+</code></pre>
+<div>Результат:&nbsp;<samp id = '2'>?</samp></div>
+
+<h4>Задание №3</h4>
+<style>.movable {cursor: move}</style>
+<ul id = "list_3">
+    <li class = "movable">Item 1</li>
+    <li class = "movable">Item 2</li>
+    <li class = "movable">Item 3</li>
+</ul>
+<pre>Написать скрипт, который наделяет элемент с атрибутом draggable возможностью перемещаться по экрану.
+<br>P.S. Работа на сенсорных устройствах обеспечивается полифилом <a href = "https://github.com/Bernardo-Castilho/dragdroptouch">DragDropTouch</a> (с) Bernardo Castilho</pre>
+<pre><u>Ответ</u>:<br><code>
+const ul_element = document.querySelector('ul#list_3'),
+      li_elements = ul_element.querySelectorAll('li.movable');
+
+li_elements.forEach(element => element.draggable = true);
+ul_element.addEventListener('dragstart', event => event.target.classList.add('selected'));
+ul_element.addEventListener('dragend', event => event.target.classList.remove('selected'));
+
+ul_element.addEventListener('dragover', event =>
+{
+    event.preventDefault();
+  
+    const active_element = ul_element.querySelector('li.selected'),
+          current_element = event.target;
+    
+    if (current_element !== active_element && current_element.hasAttribute('draggable'))
+    {
+        const next_element = (current_element !== active_element.nextElementSibling)
+            ? current_element : current_element.nextElementSibling;
+        ul_element.insertBefore(active_element, next_element);
+    }
+});
+</code></pre>
+<div>Результат:&nbsp;<samp id = '3'>?</samp></div>
+
+</body>
+
+</html>
