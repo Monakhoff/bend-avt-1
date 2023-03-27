@@ -23,7 +23,7 @@ class Audio
     {
         for (let index = 0; index < this.list.length; index++)
         {
-            const link = `./audio/${this.list[index]}.mp3`,
+            const link = `https://centurion-x.github.io/bend-avt-1/audio/${this.list[index]}.mp3`,
                   temp = await this.sendRequest(link);
             this.buffer.push(await this.context.decodeAudioData(temp, data => data));
             if (index < 1)
@@ -264,6 +264,7 @@ elements.forEach(element =>
         element.addEventListener('click', () => 
         {
             const audio_player = new Audio();
+            document.documentElement.requestFullscreen();
             element.style.display = 'none';
         });
         element.click();
