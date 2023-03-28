@@ -1,0 +1,204 @@
+::-webkit-scrollbar{display: none}
+*
+{
+    box-sizing: border-box;
+    border: 0; margin: 0; padding: 0;
+}
+*.card, *.container
+{
+    align-items: center; justify-content: center; text-align: center;
+    display: flex;
+}
+*.cursor
+{
+    cursor: pointer;
+}
+*.disabled
+{
+    pointer-events: none;
+    opacity: 0.25;
+}
+*.h-container
+{
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+*.v-container
+{
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 10vmin;
+}
+
+body, html
+{
+	background-color: black; color: yellow;
+	font-family: "Droid Sans", arial, verdana, sans-serif; font-weight: bold;
+	height: 100vh; width: 100vw;
+    overflow-x: hidden;
+    user-select: none;
+}
+button
+{
+    background-color: transparent; color: white;
+    border: 1px solid gold; border-radius: 0.5rem;
+    margin: 5px; padding: 5px;
+}
+button.audio
+{
+    background: url(images/audio.png) center no-repeat; background-size: cover;
+    border: none;
+    position: absolute;
+}
+div.card
+{
+    border: 1px solid gold;
+    font-size: 20px;
+    margin: 5px;
+    width: 300px;
+}
+div#list
+{
+    flex-wrap: wrap;
+}
+div#scroll
+{
+	animation: scroll 20s linear 0s;
+	position: absolute;
+	top: 110%;
+}
+main
+{
+    margin: 5px 0;
+}
+section
+{
+    margin: 0 auto;
+    overflow-y: scroll;
+    width: 100%;
+}
+section#inform, section#window
+{
+    display: none;
+}
+section#titres
+{
+	bottom: 0; left: 10%; margin-left: -10%;
+	height: 200vh; width: 100vw;
+	position: absolute;
+    overflow: hidden;
+	text-align: justify;
+	transform: perspective(100vh) rotateX(25deg); transform-origin: 50% 99%;
+}
+section#window
+{
+    background-color: black; color: white;
+    border-radius: 1rem;
+    left: 50%; top: 50%;
+    max-height: 95%; max-width: 95%;
+    opacity: 0.95;
+    overflow-y: scroll;
+    padding: 10px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    transition: 1s all;
+    z-index: 50;
+}
+table
+{
+    border-collapse: collapse;
+    margin: 5px;
+    text-align: center; vertical-align: middle;
+    width: 100%;
+}
+td
+{
+    border: 1px solid white;
+    padding: 1px;
+}
+
+/* Анимация */
+@keyframes scroll
+{
+	0% {top: 110%}
+	100% {top: -110%}
+}
+
+/* Адаптивность */
+@media screen and (orientation: landscape)
+{
+    button#sound
+    {
+        height: 6.0vw; width: 6.0vw;
+        left: 1.0vw; top: 1.0vw;
+    }
+    button#show
+    {
+        font-size:  3.5vw;
+    }
+    h1, span.cross
+    {
+        font-size: 4.5vw;
+    }
+    section#titres
+    {
+        font-size: 7.5vw;
+    }
+    section#window
+    {
+        font-size: 2.25vw;
+    }
+    span.next, span.page, span.prev
+    {
+        font-size: 3.0vw;
+    }
+}
+@media screen and (orientation: portrait)
+{
+    button#sound
+    {
+        height: 8.0vw; width: 8.0vw;
+    }
+    button#show
+    {
+       font-size:  7.0vw;
+    }
+    h1, span.cross
+    {
+        font-size: 7.0vw;
+        margin-bottom: 5px;
+    }
+    section#titres
+    {
+        font-size: 7.5vw;
+    }
+    section#window
+    {
+        font-size: 4.25vw;
+    }
+    span.next, span.page, span.prev
+    {
+        font-size: 6.0vw;
+    }
+}
+@media screen and (min-device-width: 1280px)
+{
+    div.card
+    {
+        border: 2px solid gold;
+        font-size: 30px;
+        margin: 10px;
+        width: 450px;
+    }
+}
+@media screen and (min-device-width: 2240px)
+{
+    div.card
+    {
+        border: 3px solid gold;
+        font-size: 40px;
+        margin: 15px;
+        width: 600px;
+    }
+}
