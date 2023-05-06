@@ -6,16 +6,16 @@ Home Works
  Homework №1
  -----------
 
--> HW_1.html
+-> 1/HW_1.html
 
--> HW_1.js
+-> 1/HW_1.js
 
  Homework №2
  -----------
  
--> HW_2.html
+-> 2/HW_2.html
 
--> HW_2.js
+-> 2/HW_2.js
 
  Practice ToDo
  -------------
@@ -43,9 +43,9 @@ Home Works
  Homework №4
  -----------
  
--> HW_4.html
+-> 4/HW_4.html
 
--> HW_4.js
+-> 4/HW_4.js
 
 -> node/server.js;
  node/package.json
