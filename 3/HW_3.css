@@ -1,7 +1,7 @@
 @font-face
 {
     font-family: 'DotGothic16'; font-style: normal; font-weight: normal;
-    src: url('./fonts/DotGothic16-Regular.ttf') format('truetype');
+    src: url('../fonts/DotGothic16-Regular.ttf') format('truetype');
 }
 body, button
 {
@@ -114,12 +114,12 @@ div#side-two
 }
 div#side-one .bot
 {
-    background: url('./images/side1.png') center center no-repeat;
+    background: url('../images/side1.png') center center no-repeat;
     background-size: contain;
 }
 div#side-two .bot
 {
-    background: url('./images/side2.png') center center no-repeat;
+    background: url('../images/side2.png') center center no-repeat;
     background-size: contain;
 }
 h1#caption
