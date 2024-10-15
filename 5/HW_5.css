@@ -33,9 +33,9 @@
 
 body, html
 {
-	background-color: black; color: yellow;
-	font-family: "Droid Sans", arial, verdana, sans-serif; font-weight: bold;
-	height: 100vh; width: 100vw;
+    background-color: black; color: yellow;
+    font-family: "Droid Sans", arial, verdana, sans-serif; font-weight: bold;
+    height: 100vh; width: 100vw;
     overflow-x: hidden;
     user-select: none;
 }
@@ -47,7 +47,7 @@ button
 }
 button.audio
 {
-    background: url(images/audio.png) center no-repeat; background-size: cover;
+    background: url(../images/audio.png) center no-repeat; background-size: cover;
     border: none;
     position: absolute;
 }
@@ -64,9 +64,9 @@ div#list
 }
 div#scroll
 {
-	animation: scroll 20s linear 0s;
-	position: absolute;
-	top: 110%;
+    animation: scroll 20s linear 0s;
+    position: absolute;
+    top: 110%;
 }
 main
 {
@@ -84,12 +84,12 @@ section#inform, section#window
 }
 section#titres
 {
-	bottom: 0; left: 10%; margin-left: -10%;
-	height: 200vh; width: 100vw;
-	position: absolute;
+    bottom: 0; left: 10%; margin-left: -10%;
+    height: 200vh; width: 100vw;
+    position: absolute;
     overflow: hidden;
-	text-align: justify;
-	transform: perspective(100vh) rotateX(25deg); transform-origin: 50% 99%;
+    text-align: justify;
+    transform: perspective(100vh) rotateX(25deg); transform-origin: 50% 99%;
 }
 section#window
 {
@@ -121,8 +121,8 @@ td
 /* Анимация */
 @keyframes scroll
 {
-	0% {top: 110%}
-	100% {top: -110%}
+    0% {top: 110%}
+    100% {top: -110%}
 }
 
 /* Адаптивность */
