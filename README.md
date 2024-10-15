@@ -1,7 +1,7 @@
 # bend-avt-1
 Home Works
 
- Домашнее задание по курсу "FRNT-JS10: Программирование клиентской части на JavaScript":
+Домашнее задание по курсу "FRNT-JS10: Программирование клиентской части на JavaScript":
  
  Homework №1
  -----------
@@ -17,6 +17,8 @@ Home Works
 
 -> 2/HW_2.js
 
++> DragDropTouch.js
+
  Practice ToDo
  -------------
  
@@ -29,11 +31,11 @@ Home Works
  Homework №3
  -----------
  
--> HW_3.html
+-> 3/HW_3.html
 
--> HW_3.css
+-> 3/HW_3.css
 
--> HW_3.js
+-> 3/HW_3.js
 
 +> fonts/DotGothic16-Regular.ttf;
  
@@ -53,11 +55,11 @@ Home Works
   Test Task
  -----------
  
--> HW_5.html
+-> 5/HW_5.html
 
--> HW_5.css
+-> 5/HW_5.css
 
--> HW_5.js
+-> 5/HW_5.js
 
 +> audio/Star Wars - Imperial March Remix.mp3;
  audio/Star Wars - Main Theme Remix.mp3;
