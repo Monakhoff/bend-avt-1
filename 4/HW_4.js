@@ -144,7 +144,7 @@ async function getData2 (key_word, subsection, link = 'https://swapi.dev/api/peo
 getData2('Anakin Skywalker', 'vehicles').then(result => display_results(9, result));
 
 /* Задание №10 (SES: Simplest Echo Server) */
-async function sendData (data = new Object, link = 'https://bbmods.ru/echo')
+async function sendData (data = new Object, link = 'https://nodeserver.ru/echo')
 {
     check_connection(10);
     data.message = document.querySelector('textarea').value;
